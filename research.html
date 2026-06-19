@@ -6,6 +6,46 @@
   <title>Research — Ari Deller</title>
   <meta name="description" content="Research by Ari Deller in epistemology, the ethics of belief, and the philosophy of artificial intelligence.">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Interactive research Venn — scoped to this page; uses the theme's :root variables */
+    .venn-wrap { margin: 1.6rem 0 2.2rem; }
+    .venn-svg { width: 100%; max-width: 400px; height: auto; display: block; margin: 0.4rem auto 0; }
+    .venn-fills circle { mix-blend-mode: multiply; }
+    .venn-outlines circle { fill: none; stroke: var(--ink); stroke-width: 2.5; }
+    .venn-labels text { font-family: var(--display); font-weight: 800; font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.02em; text-anchor: middle; pointer-events: none; }
+    .lbl-light { fill: var(--paper); }
+    .lbl-dark  { fill: var(--ink); }
+    .lens { fill: #ffffff; fill-opacity: 0; pointer-events: all; cursor: pointer;
+      transition: fill-opacity 0.12s ease; outline: none; }
+    .lens:hover, .lens:focus-visible { fill-opacity: 0.26; }
+    .lens.is-active { fill-opacity: 0.42; }
+    .venn-detail { margin-top: 1.3rem; background: var(--paper-2); border: 2.5px solid var(--ink);
+      border-radius: 2px; box-shadow: 6px 6px 0 var(--blue); padding: 1rem 1.2rem; }
+    .venn-hint { font-family: var(--display); font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.03em; font-size: 0.8rem; color: var(--ink-soft); margin: 0; }
+    .venn-detail-title { font-family: var(--display); font-weight: 800; font-size: 1.02rem;
+      margin: 0 0 0.15rem; color: var(--ink); }
+    .venn-detail-sub { font-family: var(--display); font-weight: 600; font-size: 0.72rem;
+      text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); margin: 0 0 0.7rem; }
+    a.venn-paper { display: block; position: relative; text-decoration: none; color: var(--ink);
+      padding: 0.55rem 2.1rem 0.55rem 0.75rem; margin: 0.45rem 0; background: var(--paper);
+      border: 2px solid var(--ink); border-radius: 2px; box-shadow: 3px 3px 0 var(--ink);
+      transition: box-shadow 0.12s ease, transform 0.12s ease; }
+    a.venn-paper:last-child { margin-bottom: 0; }
+    a.venn-paper:hover, a.venn-paper:focus-visible { box-shadow: 5px 5px 0 var(--orange);
+      transform: translate(-1px, -1px); color: var(--ink); }
+    a.venn-paper::after { content: "\2192"; position: absolute; right: 0.7rem; top: 50%;
+      transform: translateY(-50%); font-family: var(--display); font-weight: 800; color: var(--orange); }
+    .venn-paper-title { display: block; font-family: var(--body); font-style: italic; font-size: 1.04rem;
+      line-height: 1.3; margin: 0 0 0.1rem; }
+    .venn-paper-meta { display: block; font-family: var(--display); font-weight: 600; font-size: 0.76rem;
+      text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+    .paper { scroll-margin-top: 1.4rem; }
+    @keyframes paperFlash { 0%, 55% { background: var(--gold); } 100% { background: var(--paper); } }
+    .paper:target { box-shadow: 7px 7px 0 var(--orange); animation: paperFlash 1.6s ease-out; }
+    @media (max-width: 33rem) { .venn-svg { max-width: 300px; } }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -24,11 +64,52 @@
 
   <main class="wrap">
     <h1>Research</h1>
-    <p class="lead">My work sits at the intersection of epistemology, ethics, and the philosophy of artificial intelligence.</p>
+    <p class="lead">My work sits at the intersections of epistemology, ethics, and the philosophy of artificial intelligence.</p>
+
+    <section class="venn-wrap" aria-label="Interactive map of research areas">
+      <svg class="venn-svg" viewBox="0 0 340 320" role="img"
+           aria-label="Venn diagram of epistemology, ethics, and AI. Click where two areas overlap to list the work at that intersection.">
+        <defs>
+          <clipPath id="clip-epi"><circle cx="170" cy="127" r="96"/></clipPath>
+          <clipPath id="clip-eth"><circle cx="128" cy="199" r="96"/></clipPath>
+          <clipPath id="clip-ai"><circle cx="212" cy="199" r="96"/></clipPath>
+          <clipPath id="not-epi"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M74,127 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
+          <clipPath id="not-eth"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M32,199 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
+          <clipPath id="not-ai"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M116,199 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
+        </defs>
+
+        <g class="venn-fills">
+          <circle cx="170" cy="127" r="96" fill="var(--blue)"/>
+          <circle cx="128" cy="199" r="96" fill="var(--orange)"/>
+          <circle cx="212" cy="199" r="96" fill="var(--gold)"/>
+        </g>
+
+        <g class="venn-outlines">
+          <circle cx="170" cy="127" r="96"/>
+          <circle cx="128" cy="199" r="96"/>
+          <circle cx="212" cy="199" r="96"/>
+        </g>
+
+        <g class="venn-lenses">
+          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-eth)"><rect class="lens" data-region="EA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and AI"></rect></g></g></g>
+          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-eth)"><g clip-path="url(#not-ai)"><rect class="lens" data-region="ET" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and ethics"></rect></g></g></g>
+          <g clip-path="url(#clip-eth)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-epi)"><rect class="lens" data-region="TA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Ethics and AI"></rect></g></g></g>
+        </g>
+
+        <g class="venn-labels">
+          <text class="lbl-light" x="170" y="90">Epistemology</text>
+          <text class="lbl-light" x="96" y="243">Ethics</text>
+          <text class="lbl-dark" x="246" y="243">AI</text>
+        </g>
+      </svg>
+      <div class="venn-detail" id="venn-detail" aria-live="polite">
+        <p class="venn-hint">Click where two areas overlap to reveal the work at that intersection.</p>
+      </div>
+    </section>
 
     <h2>Publications</h2>
 
-    <div class="paper">
+    <div class="paper" id="p-epistemic-costs">
       <p class="paper-title">The Epistemic Costs of Super-Persuasive AI</p>
       <p class="paper-meta"><em>Philosophy &amp; Technology</em> 39:2 (2026), art. 92.</p>
       <p class="abstract">While ethical and existential concerns about advanced AI are widespread, on the epistemic side there remains considerable optimism. This paper strikes a different tone, warning of the epistemic costs of artificial intelligence that is both extremely capable and widely available. I begin by drawing on literature in computer science to motivate two claims: first, that AI will achieve persuasive capabilities far exceeding those of humans within our lifetimes; and second, that technical challenges in AI training make it plausible that such systems will not be reliably truthful. I then identify the epistemic costs of AI that is super-persuasive but not super-truthful. Chief among these, I argue, is that the prevalence of highly persuasive AI-generated arguments undermines our warrant for beliefs formed through argumentation, generating pervasive undercutting defeat.</p>
@@ -38,7 +119,7 @@
       </p>
     </div>
 
-    <div class="paper">
+    <div class="paper" id="p-blameworthy">
       <p class="paper-title">Blameworthy Belief: Moral Failure without Doxastic Wronging</p>
       <p class="paper-meta"><span class="status">Under review</span></p>
       <p class="abstract">This paper argues that cases of doxastic &ldquo;wronging&rdquo; have been misdiagnosed. I offer an alternative category of moral failure — moral blameworthiness — with which to diagnose such cases. Understanding them in terms of blameworthiness resolves several standing problems in the literature on doxastic wronging, and offers the epistemic purist a straightforward way of accounting for moral failure in belief.</p>
@@ -46,19 +127,19 @@
 
     <h2>Work in progress</h2>
 
-    <div class="paper">
+    <div class="paper" id="p-cep">
       <p class="paper-title">A Critique of &ldquo;Conceptual Extension Projects&rdquo; in the Philosophy of AI</p>
       <p class="paper-meta"><span class="status">In progress</span></p>
       <p class="abstract">A growing body of work in the philosophy of AI takes a valued human notion — creativity, trustworthiness, testimony, friendship — and asks whether it can be extended to artificial intelligence. I call these &ldquo;Conceptual Extension Projects&rdquo; (CEPs) and subject them to critique. I argue that such questions are deficient in both motivation and tractability, because they neglect the functions our concepts and practices play for creatures like us. In their place I propose a functional approach: rather than asking whether AIs satisfy our concepts, we should ask how AIs might serve the needs to which those concepts and practices respond.</p>
     </div>
 
-    <div class="paper">
+    <div class="paper" id="p-care">
       <p class="paper-title">Care as a Ground of Epistemic Normativity</p>
       <p class="paper-meta"><span class="status">In progress</span></p>
       <p class="abstract">What grounds epistemic normativity — the norms constituting epistemic rationality? This paper develops a suggestion that has received little sustained attention: that a ground of epistemic normativity lies in our cares. The view comprises two claims. First, being disposed to inquire about <em>x</em> is part of what it is to care about <em>x</em>, where inquiry involves striving for epistemic rationality. Second, we hold one another criticisable for what we care about. Together these claims explain both what we ought to be epistemically rational about and why.</p>
     </div>
 
-    <div class="paper">
+    <div class="paper" id="p-authenticity">
       <p class="paper-title">Authenticity in Belief: or, Knowing What You Think</p>
       <p class="paper-meta"><span class="status">In preparation</span></p>
       <p class="abstract">On a standard view, the function of belief is to represent the world, so beliefs are primarily about what is external to a person rather than internal to them. Yet some beliefs and ways of seeing the world seem to fit a person better than others. This paper asks what it takes to &ldquo;know what one thinks&rdquo; on a topic, and how this connects to one&rsquo;s character, without endorsing impurist views about proper reasons for belief. I argue that to know what you think is to occupy a perspective on which one&rsquo;s cares consistently draw one&rsquo;s attention to the topic, and on which that perspective &ldquo;makes sense&rdquo; of the topic in a way that resolves latent doubts. I connect the view to Sartrean accounts of the self.</p>
@@ -85,5 +166,47 @@
       <p>Ari Deller · Faculty of Philosophy, University of Cambridge · <a href="contact.html">Contact</a></p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var data = {
+      EA: { title: "Epistemology ∩ AI", papers: [
+        { t: "The Epistemic Costs of Super-Persuasive AI", m: "Philosophy & Technology, 2026", href: "#p-epistemic-costs" }
+      ] },
+      ET: { title: "Epistemology ∩ Ethics", papers: [
+        { t: "Blameworthy Belief: Moral Failure without Doxastic Wronging", m: "Under review", href: "#p-blameworthy" },
+        { t: "Care as a Ground of Epistemic Normativity", m: "In progress", href: "#p-care" },
+        { t: "Authenticity in Belief: or, Knowing What You Think", m: "In preparation", href: "#p-authenticity" }
+      ] },
+      TA: { title: "Ethics ∩ AI", papers: [
+        { t: "A Critique of “Conceptual Extension Projects” in the Philosophy of AI", m: "In progress", href: "#p-cep" }
+      ] }
+    };
+    var detail = document.getElementById("venn-detail");
+    var lenses = Array.prototype.slice.call(document.querySelectorAll(".lens"));
+    function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+    function show(region) {
+      var d = data[region];
+      if (!d) { return; }
+      var multi = d.papers.length > 1;
+      var html = '<h3 class="venn-detail-title">' + esc(d.title) + '</h3>';
+      html += '<p class="venn-detail-sub">' + (multi ? "Three papers — choose one to read:" : "Go to the paper:") + '</p>';
+      d.papers.forEach(function (p) {
+        html += '<a class="venn-paper" href="' + esc(p.href) + '">' +
+                  '<span class="venn-paper-title">' + esc(p.t) + '</span>' +
+                  '<span class="venn-paper-meta">' + esc(p.m) + '</span>' +
+                '</a>';
+      });
+      detail.innerHTML = html;
+      lenses.forEach(function (l) { l.classList.toggle("is-active", l.getAttribute("data-region") === region); });
+    }
+    lenses.forEach(function (l) {
+      l.addEventListener("click", function () { show(l.getAttribute("data-region")); });
+      l.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); show(l.getAttribute("data-region")); }
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
