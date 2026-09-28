@@ -62,7 +62,7 @@ body {
 }
 .header-inner {
   display: flex; flex-wrap: wrap; align-items: baseline;
-  justify-content: space-between; gap: 0.5rem 1.5rem;
+  justify-content: space-between; gap: 0.5rem 1.2rem;
   padding-top: 1.6rem; padding-bottom: 1.3rem;
 }
 .site-name {
@@ -73,14 +73,14 @@ body {
 .site-name:hover { color: var(--orange); }
 
 .site-nav {
-  font-family: var(--display); font-size: 0.82rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.04em;
+  font-family: var(--display); font-size: 0.8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.03em;
+  display: flex; flex-wrap: wrap; gap: 0.2rem 0.75rem;
 }
 .site-nav a {
-  color: var(--ink-soft); text-decoration: none; margin-left: 1.1rem;
+  color: var(--ink-soft); text-decoration: none; white-space: nowrap;
   padding-bottom: 2px; border-bottom: 3px solid transparent;
 }
-.site-nav a:first-child { margin-left: 0; }
 .site-nav a:hover { color: var(--orange); }
 .site-nav a.active { color: var(--ink); border-bottom-color: var(--orange); }
 
@@ -220,6 +220,44 @@ hr { border: 0; border-top: 2px dashed var(--rule); margin: 2.6rem 0; }
 }
 .paper-links a { margin-right: 1rem; }
 
+/* ---------- feature panel (AI safety & governance) ---------- */
+.feature {
+  background: var(--blue); color: var(--paper);
+  border: 3px solid var(--ink); border-radius: 2px;
+  box-shadow: 8px 8px 0 var(--orange);
+  padding: 1.5rem 1.6rem 1.4rem; margin: 2rem 0 2.4rem;
+}
+.feature-kicker {
+  font-family: var(--display); font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--gold); margin: 0 0 0.2rem;
+}
+.feature h2 { color: var(--paper); border-bottom-color: var(--gold); margin: 0 0 1rem; }
+.feature p:last-child, .feature ul:last-child { margin-bottom: 0; }
+.feature a { color: var(--gold); text-decoration-color: rgba(231, 165, 43, 0.55); }
+.feature a:hover { color: var(--paper); text-decoration-color: rgba(246, 237, 214, 0.6); }
+.feature ul li::marker { color: var(--gold); }
+.feature li { margin: 0.5rem 0; }
+.feature .more {
+  font-family: var(--display); font-weight: 700; font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.03em; margin: 1rem 0 0;
+}
+/* project cards sitting inside the navy panel */
+.feature .paper { color: var(--ink); box-shadow: 6px 6px 0 var(--gold); }
+.feature .paper:hover { box-shadow: 7px 7px 0 var(--orange); }
+.feature .paper a { color: var(--blue); text-decoration-color: rgba(28, 60, 99, 0.45); }
+.feature .paper a:hover { color: var(--orange); text-decoration-color: rgba(216, 67, 26, 0.55); }
+.draft-note {
+  margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 2px dashed var(--rule);
+  font-size: 0.98rem; line-height: 1.55;
+}
+.draft-label {
+  display: block; font-family: var(--display); font-weight: 700; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--orange); margin-bottom: 0.15rem;
+}
+.feature a.button { color: var(--paper); margin-top: 0.3rem; }
+.feature a.button:hover { background: var(--gold); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+
 /* ---------- buttons (CV) ---------- */
 .button {
   display: inline-block; font-family: var(--display); font-weight: 700;
@@ -285,6 +323,7 @@ hr { border: 0; border-top: 2px dashed var(--rule); margin: 2.6rem 0; }
     gap: 1.2rem; padding: 1.3rem; box-shadow: 5px 5px 0 var(--blue);
   }
   .portrait { width: 130px; height: 130px; }
+  .feature { padding: 1.2rem 0.9rem 1.1rem; box-shadow: 5px 5px 0 var(--orange); }
+  .feature .paper { padding: 0.95rem 0.9rem; box-shadow: 4px 4px 0 var(--gold); }
   .header-inner { flex-direction: column; align-items: flex-start; }
-  .site-nav a:first-child { margin-left: 0; }
 }

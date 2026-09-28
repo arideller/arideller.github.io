@@ -4,12 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — Ari Deller</title>
-  <meta name="description" content="Research by Ari Deller in epistemology, the ethics of belief, and the philosophy of artificial intelligence.">
+  <meta name="description" content="Research by Ari Deller in epistemology, the ethics of belief, the philosophy of artificial intelligence, and AI safety and governance, including work on harmful manipulation.">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Interactive research Venn — scoped to this page; uses the theme's :root variables */
-    .venn-wrap { margin: 1.6rem 0 2.2rem; }
-    .venn-svg { width: 100%; max-width: 400px; height: auto; display: block; margin: 0.4rem auto 0; }
+    /* Arrival highlight for papers linked from the home-page Venn (Fig. 1) */
+    .paper { scroll-margin-top: 1.4rem; }
+    @keyframes paperFlash { 0%, 55% { background: var(--gold); } 100% { background: var(--paper); } }
+    .paper:target { box-shadow: 7px 7px 0 var(--orange); animation: paperFlash 1.6s ease-out; }
+  </style>
+  <style>
+    /* Interactive research Venn (Fig. 1) — links to papers on the Research page */
+    .venn-wrap { margin: 2rem 0 2.2rem; }
+    .venn-plate { background: var(--paper-2); border: 3px solid var(--ink); border-radius: 2px;
+      box-shadow: 8px 8px 0 var(--blue); padding: 1.4rem 1.4rem 1.05rem; }
+    .venn-svg { width: 100%; max-width: 400px; height: auto; display: block; margin: 0 auto; }
+    .venn-caption { font-family: var(--display); font-weight: 600; font-size: 0.76rem;
+      text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft);
+      text-align: center; margin: 0.9rem 0 0; }
+    .venn-caption strong { color: var(--orange); font-weight: 800; }
     .venn-fills circle { mix-blend-mode: multiply; }
     .venn-outlines circle { fill: none; stroke: var(--ink); stroke-width: 2.5; }
     .venn-labels text { font-family: var(--display); font-weight: 800; font-size: 13px;
@@ -17,13 +29,14 @@
     .lbl-light { fill: var(--paper); }
     .lbl-dark  { fill: var(--ink); }
     .lens { fill: #ffffff; fill-opacity: 0; pointer-events: all; cursor: pointer;
-      transition: fill-opacity 0.12s ease; outline: none; }
-    .lens:hover, .lens:focus-visible { fill-opacity: 0.26; }
-    .lens.is-active { fill-opacity: 0.42; }
+      transition: fill-opacity 0.2s ease; outline: none; }
+    .lens:hover, .lens:focus-visible { fill-opacity: 0.07; }
+    .lens.is-active { fill-opacity: 0.14; }
+    .lens-hatch { pointer-events: none; opacity: 0.85; transition: opacity 0.2s ease; }
+    .lens:hover + .lens-hatch, .lens:focus-visible + .lens-hatch,
+    .lens.is-active + .lens-hatch { opacity: 1; }
     .venn-detail { margin-top: 1.3rem; background: var(--paper-2); border: 2.5px solid var(--ink);
       border-radius: 2px; box-shadow: 6px 6px 0 var(--blue); padding: 1rem 1.2rem; }
-    .venn-hint { font-family: var(--display); font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.03em; font-size: 0.8rem; color: var(--ink-soft); margin: 0; }
     .venn-detail-title { font-family: var(--display); font-weight: 800; font-size: 1.02rem;
       margin: 0 0 0.15rem; color: var(--ink); }
     .venn-detail-sub { font-family: var(--display); font-weight: 600; font-size: 0.72rem;
@@ -41,10 +54,10 @@
       line-height: 1.3; margin: 0 0 0.1rem; }
     .venn-paper-meta { display: block; font-family: var(--display); font-weight: 600; font-size: 0.76rem;
       text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
-    .paper { scroll-margin-top: 1.4rem; }
-    @keyframes paperFlash { 0%, 55% { background: var(--gold); } 100% { background: var(--paper); } }
-    .paper:target { box-shadow: 7px 7px 0 var(--orange); animation: paperFlash 1.6s ease-out; }
-    @media (max-width: 33rem) { .venn-svg { max-width: 300px; } }
+    @media (max-width: 33rem) {
+      .venn-svg { max-width: 300px; }
+      .venn-plate { padding: 1rem 0.9rem 0.8rem; box-shadow: 5px 5px 0 var(--blue); }
+    }
   </style>
 </head>
 <body>
@@ -54,6 +67,7 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="research.html" class="active" aria-current="page">Research</a>
+        <a href="ai-safety.html">AI Safety</a>
         <a href="teaching.html">Teaching</a>
         <a href="awards.html">Awards</a>
         <a href="cv.html">CV</a>
@@ -64,9 +78,22 @@
 
   <main class="wrap">
     <h1>Research</h1>
-    <p class="lead">My work sits at the intersections of epistemology, ethics, and the philosophy of artificial intelligence.</p>
+    <p class="lead">My work sits at the intersections of epistemology, ethics, and the philosophy of artificial intelligence, and extends into AI safety and governance.</p>
+
+    <section class="feature" id="ai-safety" aria-labelledby="ai-safety-heading">
+      <p class="feature-kicker">Current focus</p>
+      <h2 id="ai-safety-heading">AI safety &amp; governance</h2>
+      <p>As an <a href="awards.html#ai-fellowships"><strong>ERA:AI Governance Fellow</strong></a> (Cambridge, 2026), I work on AI persuasion and harmful manipulation: how increasingly capable systems can undermine rational belief-formation, and what labs and governing institutions can do about it. I am currently working on:</p>
+      <ul>
+        <li>a working definition and risk-tier assessment of <em>harmful manipulation</em> for the EU AI Office and frontier-lab safety frameworks;</li>
+        <li><strong>HumanRationalityBench</strong>, a benchmark tracking whether large language models degrade or improve human rationality, supported by a <a href="awards.html#grants">Cosmos Institute grant</a>.</li>
+      </ul>
+      <p>A paper, a policy memo, and a draft of the benchmark are <a href="ai-safety.html#current-projects">available on request</a>.</p>
+      <p class="more"><a href="ai-safety.html">More on my AI safety work &rarr;</a></p>
+    </section>
 
     <section class="venn-wrap" aria-label="Interactive map of research areas">
+      <div class="venn-plate">
       <svg class="venn-svg" viewBox="0 0 340 320" role="img"
            aria-label="Venn diagram of epistemology, ethics, and AI. Click where two areas overlap to list the work at that intersection.">
         <defs>
@@ -76,6 +103,27 @@
           <clipPath id="not-epi"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M74,127 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
           <clipPath id="not-eth"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M32,199 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
           <clipPath id="not-ai"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M116,199 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
+          <pattern id="hatch45" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="8" y2="0" stroke="#f6edd6" stroke-opacity="0.55" stroke-width="1.3"/>
+          </pattern>
+          <radialGradient id="fadeg-et" gradientUnits="userSpaceOnUse" cx="112" cy="141" r="88">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.62" stop-color="#ffffff" stop-opacity="0.88"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="fadeg-ea" gradientUnits="userSpaceOnUse" cx="228" cy="141" r="88">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.62" stop-color="#ffffff" stop-opacity="0.88"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="fadeg-ta" gradientUnits="userSpaceOnUse" cx="170" cy="246" r="80">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.62" stop-color="#ffffff" stop-opacity="0.88"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <mask id="fade-et"><rect x="0" y="0" width="340" height="320" fill="url(#fadeg-et)"/></mask>
+          <mask id="fade-ea"><rect x="0" y="0" width="340" height="320" fill="url(#fadeg-ea)"/></mask>
+          <mask id="fade-ta"><rect x="0" y="0" width="340" height="320" fill="url(#fadeg-ta)"/></mask>
         </defs>
 
         <g class="venn-fills">
@@ -91,9 +139,9 @@
         </g>
 
         <g class="venn-lenses">
-          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-eth)"><rect class="lens" data-region="EA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and AI"></rect></g></g></g>
-          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-eth)"><g clip-path="url(#not-ai)"><rect class="lens" data-region="ET" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and ethics"></rect></g></g></g>
-          <g clip-path="url(#clip-eth)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-epi)"><rect class="lens" data-region="TA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Ethics and AI"></rect></g></g></g>
+          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-eth)"><rect class="lens" data-region="EA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and AI"></rect><rect class="lens-hatch" x="0" y="0" width="340" height="320" fill="url(#hatch45)" mask="url(#fade-ea)"/></g></g></g>
+          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-eth)"><g clip-path="url(#not-ai)"><rect class="lens" data-region="ET" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and ethics"></rect><rect class="lens-hatch" x="0" y="0" width="340" height="320" fill="url(#hatch45)" mask="url(#fade-et)"/></g></g></g>
+          <g clip-path="url(#clip-eth)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-epi)"><rect class="lens" data-region="TA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Ethics and AI"></rect><rect class="lens-hatch" x="0" y="0" width="340" height="320" fill="url(#hatch45)" mask="url(#fade-ta)"/></g></g></g>
         </g>
 
         <g class="venn-labels">
@@ -102,9 +150,9 @@
           <text class="lbl-dark" x="246" y="243">AI</text>
         </g>
       </svg>
-      <div class="venn-detail" id="venn-detail" aria-live="polite">
-        <p class="venn-hint">Click where two areas overlap to reveal the work at that intersection.</p>
+      <p class="venn-caption"><strong>Fig. 1</strong> &mdash; Click a hatched overlap to reveal the work at that intersection.</p>
       </div>
+      <div class="venn-detail" id="venn-detail" aria-live="polite" hidden></div>
     </section>
 
     <h2>Publications</h2>
@@ -145,17 +193,11 @@
       <p class="abstract">On a standard view, the function of belief is to represent the world, so beliefs are primarily about what is external to a person rather than internal to them. Yet some beliefs and ways of seeing the world seem to fit a person better than others. This paper asks what it takes to &ldquo;know what one thinks&rdquo; on a topic, and how this connects to one&rsquo;s character, without endorsing impurist views about proper reasons for belief. I argue that to know what you think is to occupy a perspective on which one&rsquo;s cares consistently draw one&rsquo;s attention to the topic, and on which that perspective &ldquo;makes sense&rdquo; of the topic in a way that resolves latent doubts. I connect the view to Sartrean accounts of the self.</p>
     </div>
 
-    <h2 id="ai-safety">AI safety &amp; governance</h2>
-    <p>As an <strong>ERA:AI Governance Fellow</strong> (Cambridge, 2026), I work on AI persuasion and harmful manipulation: how increasingly capable systems can undermine rational belief-formation, and what labs and governing institutions can do about it. I am currently working on:</p>
-    <ul>
-      <li>a working definition and risk-tier assessment of <em>harmful manipulation</em> for the EU AI Office and frontier-lab safety frameworks;</li>
-      <li>the conceptual foundations of a benchmark measuring rational belief-formation after interaction with AI, complementing existing alternatives such as <a href="https://arxiv.org/abs/2603.10018">DeliberationBench</a>.</li>
-    </ul>
-
     <h2>Reviews &amp; public writing</h2>
     <ul>
-      <li>Review of Samuel Lebens, <em>A Guide for the Jewish Undecided</em>. <em>Religious Studies Review</em> 49 (2023): 212&ndash;213.</li>
-      <li>&ldquo;The Martial Art of Free Speech&rdquo; (with Laura Janner-Klausner). <em>Index on Censorship</em> 50:1 (2021): 32&ndash;34.</li>
+      <li>Review of Samuel Lebens, <a href="https://doi.org/10.1111/rsr.16538"><em>A Guide for the Jewish Undecided</em></a>. <em>Religious Studies Review</em> 49 (2023): 212&ndash;213.</li>
+      <li><a href="https://doi.org/10.1177/03064220211012285">&ldquo;The Martial Art of Free Speech&rdquo;</a> (with Laura Janner-Klausner). <em>Index on Censorship</em> 50:1 (2021): 32&ndash;34.</li>
+      <li><a href="https://www.ft.com/content/9aba1f9e-f018-4ab5-bdac-e9bf217cd74e">&ldquo;Redemption, not cancellation, should be the goal&rdquo;</a> (with Laura Janner-Klausner). <em>Financial Times</em> (September 2020).</li>
     </ul>
 
     <h2>Selected talks</h2>
@@ -173,6 +215,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
+        <a href="ai-safety.html">AI Safety</a>
         <a href="teaching.html">Teaching</a>
         <a href="awards.html">Awards</a>
         <a href="cv.html">CV</a>
@@ -181,7 +224,6 @@
       <p>Ari Deller · Faculty of Philosophy, University of Cambridge</p>
     </div>
   </footer>
-
   <script>
   (function () {
     var data = {
@@ -213,6 +255,7 @@
                 '</a>';
       });
       detail.innerHTML = html;
+      detail.hidden = false;
       lenses.forEach(function (l) { l.classList.toggle("is-active", l.getAttribute("data-region") === region); });
     }
     lenses.forEach(function (l) {

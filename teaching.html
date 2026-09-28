@@ -6,6 +6,25 @@
   <title>Teaching — Ari Deller</title>
   <meta name="description" content="Teaching by Ari Deller at the University of Cambridge and the University of Oxford.">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Teaching entries: course | years, then role · institution */
+    .teach-subject { font-family: var(--display); font-size: 0.8rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange);
+      margin: 1.9rem 0 0.15rem; }
+    .teach-subject:first-of-type { margin-top: 0.7rem; }
+    .teach-list { list-style: none; padding: 0; margin: 0; }
+    .teach-list li { display: grid; grid-template-columns: 1fr auto; column-gap: 1.2rem;
+      align-items: baseline; margin: 0; padding: 0.6rem 0;
+      border-bottom: 1px dashed var(--rule); }
+    .teach-list li:last-child { border-bottom: 0; }
+    .teach-course { font-weight: 600; line-height: 1.4; }
+    .teach-years { font-family: var(--display); font-size: 0.8rem; font-weight: 700;
+      color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .teach-meta { grid-column: 1 / -1; margin-top: 0.15rem; font-family: var(--display);
+      font-size: 0.74rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em; color: var(--ink-soft); }
+    .teach-note { grid-column: 1 / -1; margin-top: 0.35rem; font-size: 1rem; line-height: 1.55; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -14,6 +33,7 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
+        <a href="ai-safety.html">AI Safety</a>
         <a href="teaching.html" class="active" aria-current="page">Teaching</a>
         <a href="awards.html">Awards</a>
         <a href="cv.html">CV</a>
@@ -25,29 +45,116 @@
   <main class="wrap">
     <h1>Teaching</h1>
 
-    <p>I have designed courses, supervised, led seminars, and given tutorials across ethics, metaphysics, epistemology, logic, and political philosophy.</p>
+    <p>I design courses, lecture, supervise, lead seminars, and give tutorials across ethics, political philosophy, metaphysics, epistemology, the philosophy of AI, logic, and academic writing.</p>
 
     <h2>Pedagogical training</h2>
-    <ul>
-      <li><strong><a href="https://lifeworthliving.yale.edu/people/ari-deller">Life Worth Living Graduate Pedagogy Fellowship</a></strong> — Yale Center for Faith &amp; Culture (2026). A fellowship supporting doctoral students in designing courses that help students explore what makes for a flourishing life.</li>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course"><a href="https://lifeworthliving.yale.edu/people/ari-deller">Life Worth Living Graduate Pedagogy Fellowship</a></span>
+        <span class="teach-years">2026</span>
+        <span class="teach-meta">Yale Center for Faith &amp; Culture</span>
+        <span class="teach-note">A fellowship supporting doctoral students in designing courses that help students explore what makes for a flourishing life.</span>
+      </li>
     </ul>
 
-    <h2>University of Cambridge</h2>
-    <ul>
-      <li><strong>Ethics</strong> — Part 1A seminars; Part 1B supervisions and seminars (2024&ndash;2026)</li>
-      <li><strong>Metaphysics</strong> — Part 1A seminars (2025&ndash;2026)</li>
-      <li><strong>Political Philosophy</strong> — supervisions (2024&ndash;2025)</li>
+    <h2>Courses</h2>
+
+    <h3 class="teach-subject">Ethics</h3>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course">Moral Responsibility and Implicit Beliefs</span>
+        <span class="teach-years">2026&ndash;2027</span>
+        <span class="teach-meta">Lectures &middot; University of Cambridge</span>
+      </li>
+      <li>
+        <span class="teach-course">Practical Ethics</span>
+        <span class="teach-years">2026&ndash;2027</span>
+        <span class="teach-meta">Private tutoring &middot; University of Oxford course</span>
+      </li>
+      <li>
+        <span class="teach-course">Part 1B Ethics</span>
+        <span class="teach-years">2024&ndash;2027</span>
+        <span class="teach-meta">Seminars &middot; University of Cambridge</span>
+      </li>
+      <li>
+        <span class="teach-course">Part 1B Ethics</span>
+        <span class="teach-years">2024&ndash;2026</span>
+        <span class="teach-meta">Supervisions &middot; University of Cambridge</span>
+      </li>
+      <li>
+        <span class="teach-course">Part 1A Ethics</span>
+        <span class="teach-years">2024&ndash;2026</span>
+        <span class="teach-meta">Seminars &middot; University of Cambridge</span>
+      </li>
     </ul>
 
-    <h2>University of Oxford</h2>
-    <ul>
-      <li><strong>Knowledge and Reality</strong> — tutorials (2023&ndash;2024)</li>
-      <li><strong>Introduction to Logic</strong> — teaching assistant (2023&ndash;2024)</li>
-      <li><strong>Academic Philosophical Writing</strong> (2022&ndash;2023)</li>
+    <h3 class="teach-subject">Political philosophy</h3>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course">Part 2 Political Philosophy</span>
+        <span class="teach-years">2024&ndash;2025</span>
+        <span class="teach-meta">Supervisions &middot; University of Cambridge</span>
+      </li>
+    </ul>
+
+    <h3 class="teach-subject">Metaphysics</h3>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course">Part 1A Metaphysics</span>
+        <span class="teach-years">2025&ndash;2027</span>
+        <span class="teach-meta">Seminars &middot; University of Cambridge</span>
+      </li>
+      <li>
+        <span class="teach-course">Knowledge and Reality</span>
+        <span class="teach-years">2023&ndash;2024</span>
+        <span class="teach-meta">Tutorials &middot; University of Oxford</span>
+      </li>
+    </ul>
+
+    <h3 class="teach-subject">Epistemology</h3>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course">Part 1B Knowledge, Language and World</span>
+        <span class="teach-years">2026&ndash;2027</span>
+        <span class="teach-meta">Supervisions on the Knowledge component &middot; University of Cambridge</span>
+      </li>
+      <li>
+        <span class="teach-course">Knowledge and Reality</span>
+        <span class="teach-years">2023&ndash;2024</span>
+        <span class="teach-meta">Tutorials &middot; University of Oxford</span>
+      </li>
+    </ul>
+
+    <h3 class="teach-subject">Philosophy of AI</h3>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course">Dissertation on the ethics of AI</span>
+        <span class="teach-years">2026&ndash;2027</span>
+        <span class="teach-meta">Supervision &middot; University of Cambridge</span>
+      </li>
+    </ul>
+
+    <h3 class="teach-subject">Logic</h3>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course">Introduction to Logic</span>
+        <span class="teach-years">2023&ndash;2024</span>
+        <span class="teach-meta">Teaching assistant &middot; University of Oxford</span>
+      </li>
+    </ul>
+
+    <h3 class="teach-subject">Academic writing</h3>
+    <ul class="teach-list">
+      <li>
+        <span class="teach-course">Academic Philosophical Writing</span>
+        <span class="teach-years">2022&ndash;2023</span>
+        <span class="teach-meta">Tutorials &middot; University of Oxford</span>
+      </li>
     </ul>
 
     <h2 id="episteme">Service</h2>
     <p>Along with Tatiana Sitnikova and Lena Wang, I co-run the <a href="https://adhamelshazly.notion.site/Cambridge-Episteme-Research-Group-9f56cb07af844fe1885371446127f6cc"><strong>Cambridge Episteme Research Group</strong></a>, which explores contemporary issues in epistemology through a speaker series and reading sessions. Past speakers include Daniela Dover, Rachel Fraser, Michael Hannon, Elise Woodard, and Alex Worsnip.</p>
+    <p>Along with Joachim Nicolodi, I co-convene the <a href="https://www.hps.cam.ac.uk/news-events/seminars-reading-groups/kinds-intelligence"><strong>Kinds of Intelligence</strong></a> reading group at the Leverhulme Centre for the Future of Intelligence, where we discuss work in the philosophy of mind and on the normative questions raised by artificial intelligence.</p>
   </main>
 
   <footer class="site-footer">
@@ -55,6 +162,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
+        <a href="ai-safety.html">AI Safety</a>
         <a href="teaching.html">Teaching</a>
         <a href="awards.html">Awards</a>
         <a href="cv.html">CV</a>

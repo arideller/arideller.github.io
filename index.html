@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ari Deller — Philosophy, University of Cambridge</title>
-  <meta name="description" content="Ari Deller — PhD candidate in Philosophy at the University of Cambridge, working in epistemology, ethics, and the philosophy of artificial intelligence.">
+  <meta name="description" content="Ari Deller — PhD candidate in Philosophy at the University of Cambridge, working in epistemology, ethics, the philosophy of artificial intelligence, and AI safety and governance.">
   <link rel="canonical" href="https://arideller.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Ari Deller — Philosophy, University of Cambridge">
-  <meta property="og:description" content="PhD candidate in Philosophy at the University of Cambridge, working in epistemology, ethics, and the philosophy of artificial intelligence.">
+  <meta property="og:description" content="PhD candidate in Philosophy at the University of Cambridge, working in epistemology, ethics, the philosophy of artificial intelligence, and AI safety and governance.">
   <meta property="og:url" content="https://arideller.github.io/">
   <meta property="og:image" content="https://arideller.github.io/headshot.jpg">
   <link rel="stylesheet" href="styles.css">
@@ -20,13 +20,13 @@
     "url": "https://arideller.github.io/",
     "image": "https://arideller.github.io/headshot.jpg",
     "jobTitle": "PhD Candidate in Philosophy",
-    "description": "PhD candidate in Philosophy at the University of Cambridge, working in epistemology, ethics, and the philosophy of artificial intelligence.",
+    "description": "PhD candidate in Philosophy at the University of Cambridge, working in epistemology, ethics, the philosophy of artificial intelligence, and AI safety and governance.",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Cambridge" },
     "alumniOf": [
       { "@type": "CollegeOrUniversity", "name": "University of Oxford" },
       { "@type": "CollegeOrUniversity", "name": "University of Edinburgh" }
     ],
-    "knowsAbout": ["Epistemology", "Ethics", "Philosophy of Artificial Intelligence", "Epistemic agency", "Ethics of belief"],
+    "knowsAbout": ["Epistemology", "Ethics", "Philosophy of Artificial Intelligence", "AI safety and governance", "Epistemic agency", "Ethics of belief"],
     "sameAs": [
       "https://philpeople.org/profiles/ari-deller",
       "https://www.linkedin.com/in/ari-deller-140a08164/",
@@ -35,6 +35,53 @@
     ]
   }
   </script>
+  <style>
+    /* Interactive research Venn (Fig. 1) — links to papers on the Research page */
+    .venn-wrap { margin: 2rem 0 2.2rem; }
+    .venn-plate { background: var(--paper-2); border: 3px solid var(--ink); border-radius: 2px;
+      box-shadow: 8px 8px 0 var(--blue); padding: 1.4rem 1.4rem 1.05rem; }
+    .venn-svg { width: 100%; max-width: 400px; height: auto; display: block; margin: 0 auto; }
+    .venn-caption { font-family: var(--display); font-weight: 600; font-size: 0.76rem;
+      text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft);
+      text-align: center; margin: 0.9rem 0 0; }
+    .venn-caption strong { color: var(--orange); font-weight: 800; }
+    .venn-fills circle { mix-blend-mode: multiply; }
+    .venn-outlines circle { fill: none; stroke: var(--ink); stroke-width: 2.5; }
+    .venn-labels text { font-family: var(--display); font-weight: 800; font-size: 13px;
+      text-transform: uppercase; letter-spacing: 0.02em; text-anchor: middle; pointer-events: none; }
+    .lbl-light { fill: var(--paper); }
+    .lbl-dark  { fill: var(--ink); }
+    .lens { fill: #ffffff; fill-opacity: 0; pointer-events: all; cursor: pointer;
+      transition: fill-opacity 0.2s ease; outline: none; }
+    .lens:hover, .lens:focus-visible { fill-opacity: 0.07; }
+    .lens.is-active { fill-opacity: 0.14; }
+    .lens-hatch { pointer-events: none; opacity: 0.85; transition: opacity 0.2s ease; }
+    .lens:hover + .lens-hatch, .lens:focus-visible + .lens-hatch,
+    .lens.is-active + .lens-hatch { opacity: 1; }
+    .venn-detail { margin-top: 1.3rem; background: var(--paper-2); border: 2.5px solid var(--ink);
+      border-radius: 2px; box-shadow: 6px 6px 0 var(--blue); padding: 1rem 1.2rem; }
+    .venn-detail-title { font-family: var(--display); font-weight: 800; font-size: 1.02rem;
+      margin: 0 0 0.15rem; color: var(--ink); }
+    .venn-detail-sub { font-family: var(--display); font-weight: 600; font-size: 0.72rem;
+      text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); margin: 0 0 0.7rem; }
+    a.venn-paper { display: block; position: relative; text-decoration: none; color: var(--ink);
+      padding: 0.55rem 2.1rem 0.55rem 0.75rem; margin: 0.45rem 0; background: var(--paper);
+      border: 2px solid var(--ink); border-radius: 2px; box-shadow: 3px 3px 0 var(--ink);
+      transition: box-shadow 0.12s ease, transform 0.12s ease; }
+    a.venn-paper:last-child { margin-bottom: 0; }
+    a.venn-paper:hover, a.venn-paper:focus-visible { box-shadow: 5px 5px 0 var(--orange);
+      transform: translate(-1px, -1px); color: var(--ink); }
+    a.venn-paper::after { content: "\2192"; position: absolute; right: 0.7rem; top: 50%;
+      transform: translateY(-50%); font-family: var(--display); font-weight: 800; color: var(--orange); }
+    .venn-paper-title { display: block; font-family: var(--body); font-style: italic; font-size: 1.04rem;
+      line-height: 1.3; margin: 0 0 0.1rem; }
+    .venn-paper-meta { display: block; font-family: var(--display); font-weight: 600; font-size: 0.76rem;
+      text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); }
+    @media (max-width: 33rem) {
+      .venn-svg { max-width: 300px; }
+      .venn-plate { padding: 1rem 0.9rem 0.8rem; box-shadow: 5px 5px 0 var(--blue); }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -43,6 +90,7 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="index.html" class="active" aria-current="page">Home</a>
         <a href="research.html">Research</a>
+        <a href="ai-safety.html">AI Safety</a>
         <a href="teaching.html">Teaching</a>
         <a href="awards.html">Awards</a>
         <a href="cv.html">CV</a>
@@ -58,7 +106,7 @@
       <div class="intro-text">
         <h1>Ari Deller</h1>
         <p class="subtitle">PhD Candidate in Philosophy · University of Cambridge</p>
-        <p class="lead">I work in epistemology, ethics, and the philosophy of artificial intelligence.</p>
+        <p class="lead">I work in epistemology, ethics, and the philosophy of artificial intelligence, and on AI safety and governance.</p>
       </div>
     </section>
 
@@ -71,7 +119,17 @@
     </ol>
     <p>My doctoral thesis, <em>Epistemic Agency and Practical Pressures</em>, pursues this theme across the grounds of epistemic normativity, the morality of belief, and the epistemic stakes of living alongside persuasive AI.</p>
 
-    <p>Alongside my doctoral work, I hold fellowships in AI governance and safety — currently as an <a href="research.html#ai-safety">ERA:AI Governance Fellow</a> and a Fellow of the Cambridge AI Safety Hub — working on AI persuasion and harmful manipulation.</p>
+    <section class="feature" aria-labelledby="home-ai-heading">
+      <p class="feature-kicker">Current focus</p>
+      <h2 id="home-ai-heading">AI safety &amp; governance</h2>
+      <p>Alongside my doctoral work, I hold fellowships in AI governance and safety, currently as an <a href="ai-safety.html">ERA:AI Governance Fellow</a> and a Fellow of the <a href="https://caish.org">Cambridge AI Safety Hub</a>. I work on AI persuasion and harmful manipulation:</p>
+      <ul>
+        <li>defining and assessing <em>harmful manipulation</em> for the EU AI Office and frontier-lab safety frameworks;</li>
+        <li>developing <strong>HumanRationalityBench</strong>, a benchmark tracking whether large language models degrade or improve human rationality, funded by a <a href="awards.html#grants">Cosmos Institute grant</a>.</li>
+      </ul>
+      <p>A paper, a policy memo, and a draft of the benchmark are <a href="ai-safety.html#current-projects">available on request</a>.</p>
+      <p class="more"><a href="ai-safety.html">More on this work &rarr;</a></p>
+    </section>
 
     <ul class="quicklinks">
       <li><a href="mailto:ad2328@cam.ac.uk">Email</a></li>
@@ -79,11 +137,75 @@
       <li><a href="https://philpeople.org/profiles/ari-deller">PhilPeople</a></li>
     </ul>
 
+    <section class="venn-wrap" aria-label="Interactive map of research areas">
+      <div class="venn-plate">
+      <svg class="venn-svg" viewBox="0 0 340 320" role="img"
+           aria-label="Venn diagram of epistemology, ethics, and AI. Click where two areas overlap to list the work at that intersection.">
+        <defs>
+          <clipPath id="clip-epi"><circle cx="170" cy="127" r="96"/></clipPath>
+          <clipPath id="clip-eth"><circle cx="128" cy="199" r="96"/></clipPath>
+          <clipPath id="clip-ai"><circle cx="212" cy="199" r="96"/></clipPath>
+          <clipPath id="not-epi"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M74,127 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
+          <clipPath id="not-eth"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M32,199 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
+          <clipPath id="not-ai"><path clip-rule="evenodd" d="M0,0 H340 V320 H0 Z M116,199 a96,96 0 1,0 192,0 a96,96 0 1,0 -192,0 Z"/></clipPath>
+          <pattern id="hatch45" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="8" y2="0" stroke="#f6edd6" stroke-opacity="0.55" stroke-width="1.3"/>
+          </pattern>
+          <radialGradient id="fadeg-et" gradientUnits="userSpaceOnUse" cx="112" cy="141" r="88">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.62" stop-color="#ffffff" stop-opacity="0.88"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="fadeg-ea" gradientUnits="userSpaceOnUse" cx="228" cy="141" r="88">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.62" stop-color="#ffffff" stop-opacity="0.88"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="fadeg-ta" gradientUnits="userSpaceOnUse" cx="170" cy="246" r="80">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="0.62" stop-color="#ffffff" stop-opacity="0.88"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <mask id="fade-et"><rect x="0" y="0" width="340" height="320" fill="url(#fadeg-et)"/></mask>
+          <mask id="fade-ea"><rect x="0" y="0" width="340" height="320" fill="url(#fadeg-ea)"/></mask>
+          <mask id="fade-ta"><rect x="0" y="0" width="340" height="320" fill="url(#fadeg-ta)"/></mask>
+        </defs>
+
+        <g class="venn-fills">
+          <circle cx="170" cy="127" r="96" fill="var(--blue)"/>
+          <circle cx="128" cy="199" r="96" fill="var(--orange)"/>
+          <circle cx="212" cy="199" r="96" fill="var(--gold)"/>
+        </g>
+
+        <g class="venn-outlines">
+          <circle cx="170" cy="127" r="96"/>
+          <circle cx="128" cy="199" r="96"/>
+          <circle cx="212" cy="199" r="96"/>
+        </g>
+
+        <g class="venn-lenses">
+          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-eth)"><rect class="lens" data-region="EA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and AI"></rect><rect class="lens-hatch" x="0" y="0" width="340" height="320" fill="url(#hatch45)" mask="url(#fade-ea)"/></g></g></g>
+          <g clip-path="url(#clip-epi)"><g clip-path="url(#clip-eth)"><g clip-path="url(#not-ai)"><rect class="lens" data-region="ET" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Epistemology and ethics"></rect><rect class="lens-hatch" x="0" y="0" width="340" height="320" fill="url(#hatch45)" mask="url(#fade-et)"/></g></g></g>
+          <g clip-path="url(#clip-eth)"><g clip-path="url(#clip-ai)"><g clip-path="url(#not-epi)"><rect class="lens" data-region="TA" x="0" y="0" width="340" height="320" role="button" tabindex="0" aria-label="Ethics and AI"></rect><rect class="lens-hatch" x="0" y="0" width="340" height="320" fill="url(#hatch45)" mask="url(#fade-ta)"/></g></g></g>
+        </g>
+
+        <g class="venn-labels">
+          <text class="lbl-light" x="170" y="90">Epistemology</text>
+          <text class="lbl-light" x="96" y="243">Ethics</text>
+          <text class="lbl-dark" x="246" y="243">AI</text>
+        </g>
+      </svg>
+      <p class="venn-caption"><strong>Fig. 1</strong> &mdash; Click a hatched overlap to reveal the work at that intersection.</p>
+      </div>
+      <div class="venn-detail" id="venn-detail" aria-live="polite" hidden></div>
+    </section>
+
     <h2>Research interests</h2>
     <ul>
       <li>Epistemology — epistemic normativity, epistemic agency, and defeat</li>
       <li>The ethics of belief — doxastic wronging and the morality of belief</li>
-      <li>Philosophy of artificial intelligence; AI governance and safety</li>
+      <li>Philosophy of artificial intelligence</li>
+      <li>AI safety and governance — AI persuasion, harmful manipulation, and human rationality</li>
       <li>Connections to the philosophy of mind and the self — care, authenticity</li>
     </ul>
 
@@ -100,6 +222,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
+        <a href="ai-safety.html">AI Safety</a>
         <a href="teaching.html">Teaching</a>
         <a href="awards.html">Awards</a>
         <a href="cv.html">CV</a>
@@ -108,5 +231,48 @@
       <p>Ari Deller · Faculty of Philosophy, University of Cambridge</p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var data = {
+      EA: { title: "Epistemology ∩ AI", papers: [
+        { t: "The Epistemic Costs of Super-Persuasive AI", m: "Philosophy & Technology, 2026", href: "research.html#p-epistemic-costs" }
+      ] },
+      ET: { title: "Epistemology ∩ Ethics", papers: [
+        { t: "Blameworthy Belief: Moral Failure without Doxastic Wronging", m: "Under review", href: "research.html#p-blameworthy" },
+        { t: "Care as a Ground of Epistemic Normativity", m: "In progress", href: "research.html#p-care" },
+        { t: "Authenticity in Belief: or, Knowing What You Think", m: "In preparation", href: "research.html#p-authenticity" }
+      ] },
+      TA: { title: "Ethics ∩ AI", papers: [
+        { t: "A Critique of “Conceptual Extension Projects” in the Philosophy of AI", m: "In progress", href: "research.html#p-cep" }
+      ] }
+    };
+    var detail = document.getElementById("venn-detail");
+    var lenses = Array.prototype.slice.call(document.querySelectorAll(".lens"));
+    function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+    function show(region) {
+      var d = data[region];
+      if (!d) { return; }
+      var multi = d.papers.length > 1;
+      var html = '<h3 class="venn-detail-title">' + esc(d.title) + '</h3>';
+      html += '<p class="venn-detail-sub">' + (multi ? "Three papers — choose one to read:" : "Go to the paper:") + '</p>';
+      d.papers.forEach(function (p) {
+        html += '<a class="venn-paper" href="' + esc(p.href) + '">' +
+                  '<span class="venn-paper-title">' + esc(p.t) + '</span>' +
+                  '<span class="venn-paper-meta">' + esc(p.m) + '</span>' +
+                '</a>';
+      });
+      detail.innerHTML = html;
+      detail.hidden = false;
+      lenses.forEach(function (l) { l.classList.toggle("is-active", l.getAttribute("data-region") === region); });
+    }
+    lenses.forEach(function (l) {
+      l.addEventListener("click", function () { show(l.getAttribute("data-region")); });
+      l.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") { e.preventDefault(); show(l.getAttribute("data-region")); }
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
